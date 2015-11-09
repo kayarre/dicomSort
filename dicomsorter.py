@@ -1,6 +1,6 @@
 import collections
 import os
-import dicom
+import pydicom
 import re
 import sys
 import gui
@@ -47,8 +47,8 @@ def isdicom(filename):
     if os.path.basename(filename).lower() == 'dicomdir':
         return False
     try:
-        return dicom.read_file(filename)
-    except dicom.filereader.InvalidDicomError:
+        return pydicom.read_file(filename)
+    except pydicom.filereader.InvalidDicomError:
         return False
 
 
